@@ -35,7 +35,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //create data
+        //create data laravel
     }
 
     /**
