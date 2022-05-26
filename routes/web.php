@@ -26,7 +26,10 @@ Route::post('/produk/Kirim/{id}', 'ProductController@update');
 
 Route::get('/produk/Hapus/{id}', 'ProductController@destroy');
 
+Route::get('/admin', [App\Http\Controllers\AdminController::class, 'admin'])->name('admin');
+
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
