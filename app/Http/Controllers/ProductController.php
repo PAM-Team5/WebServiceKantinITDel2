@@ -78,7 +78,6 @@ class ProductController extends Controller
             'deskripsi' => $request->deskripsi,
         ]);
 
-
         return redirect(route('product'))->with('success','Data Product berhasil dibuat !');
     }
 

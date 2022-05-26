@@ -26,44 +26,23 @@
 </head>
 
 <body>
-    <!-- ============================================================== -->
-    <!-- Preloader - style you can find in spinners.css -->
-    <!-- ============================================================== -->
     <div class="preloader">
         <div class="lds-ripple">
             <div class="lds-pos"></div>
             <div class="lds-pos"></div>
         </div>
     </div>
-    <!-- ============================================================== -->
-    <!-- Main wrapper - style you can find in pages.scss -->
-    <!-- ============================================================== -->
     <div id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
         data-sidebar-position="absolute" data-header-position="absolute" data-boxed-layout="full">
-        <!-- ============================================================== -->
-        <!-- Topbar header - style you can find in pages.scss -->
-        <!-- ============================================================== -->
         <header class="topbar" data-navbarbg="skin6">
             <nav class="navbar top-navbar navbar-expand-md navbar-dark">
                 <div class="navbar-header" data-logobg="skin6">
-                    <!-- ============================================================== -->
-                    <!-- Logo -->
-                    <!-- ============================================================== -->
                     <a class="navbar-brand ms-4" href="index.html">
                       <h3 class="text-light">Kantin Del</h3>
                     </a>
-                    <!-- ============================================================== -->
-                    <!-- End Logo -->
-                    <!-- ============================================================== -->
-                    <!-- ============================================================== -->
-                    <!-- toggle and nav items -->
-                    <!-- ============================================================== -->
                     <a class="nav-toggler waves-effect waves-light text-white d-block d-md-none"
                         href="javascript:void(0)"><i class="ti-menu ti-close"></i></a>
                 </div>
-                <!-- ============================================================== -->
-                <!-- End Logo -->
-                <!-- ============================================================== -->
                 <div class="navbar-collapse collapse" id="navbarSupportedContent" data-navbarbg="skin5">
                     <ul class="navbar-nav d-lg-none d-md-block ">
                         <li class="nav-item">
@@ -71,14 +50,7 @@
                                 href="javascript:void(0)"><i class="ti-menu ti-close"></i></a>
                         </li>
                     </ul>
-                    <!-- ============================================================== -->
-                    <!-- toggle and nav items -->
-                    <!-- ============================================================== -->
                     <ul class="navbar-nav me-auto mt-md-0 ">
-                        <!-- ============================================================== -->
-                        <!-- Search -->
-                        <!-- ============================================================== -->
-
                         <li class="nav-item search-box">
                             <a class="nav-link text-muted" href="javascript:void(0)"><i class="ti-search"></i></a>
                             <form class="app-search" style="display: none;">
@@ -89,12 +61,6 @@
                 </div>
             </nav>
         </header>
-        <!-- ============================================================== -->
-        <!-- End Topbar header -->
-        <!-- ============================================================== -->
-        <!-- ============================================================== -->
-        <!-- Left Sidebar - style you can find in sidebar.scss  -->
-        <!-- ============================================================== -->
         <aside class="left-sidebar" data-sidebarbg="skin6">
             <!-- Sidebar scroll-->
             <div class="scroll-sidebar">
@@ -134,19 +100,19 @@
             <div class="page-breadcrumb">
                 <div class="row align-items-center">
                     <div class="col-md-6 col-8 align-self-center">
-                        <h3 class="page-title mb-0 p-0">Data Produk</h3>
+                        <h3 class="page-title mb-0 p-0">Data Pemesanan</h3>
                         <div class="d-flex align-items-center">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="{{asset('admin')}}">Home</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">Produk</li>
+                                    <li class="breadcrumb-item active" aria-current="page">Pesanan</li>
                                 </ol>
                             </nav>
                         </div>
                     </div>
                 </div>
                 <div class="container">
-                    <h2 class="mb-5 mt-5 fw-bold">DAFTAR PRODUK</h2>
+                    <h2 class="mb-5 mt-5 fw-bold">DAFTAR PESANAN</h2>
 
                     <a href="#" class="btn btn-success mb-4" data-bs-toggle="modal" data-bs-target="#tambahProduct">Tambah Data</a>
 
@@ -166,21 +132,21 @@
                             </thead>
                             <tbody>
                                 <?php $i=1 ?>
-                                    @foreach ($products as $product)
+                                    @foreach ($pembayarans as $pembayaran)
 
                                 <tr>
                                     <td class="text-center">{{$i}}</td>
-                                    <td class="text-center">{{$product -> nama}}</td>
-                                    <td class="text-center">{{$product -> kategori}}</td>
-                                    <td class="text-center">{{$product -> jumlah}}</td>
-                                    <td class="text-center">Rp {{$product -> hargaPcs}} / pcs</td>
+                                    <td class="text-center">{{$pembayaran -> nama}}</td>
+                                    <td class="text-center">{{$pembayaran -> kategori}}</td>
+                                    <td class="text-center">{{$pembayaran -> jumlah}}</td>
+                                    <td class="text-center">Rp {{$pembayaran -> harga}} / pcs</td>
                                     <td class="text-center">
                                         <div class="d-flex justify-content-around">
-                                            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#abc<?= $product->id ?>">Detail</button>
+                                            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#abc<?= $pembayaran->id ?>">Detail</button>
                                             &nbsp;
-                                            <a href="#" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#def<?= $product->id ?>">Ubah</a>
+                                            <a href="#" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#def<?= $pembayaran->id ?>">Ubah</a>
                                             &nbsp;
-                                            <a href="/produk/Hapus/{{$product->id}}" class="btn btn-danger" >Hapus</a>
+                                            <a href="/produk/Hapus/{{$pembayaran->id}}" class="btn btn-danger" >Hapus</a>
                                         </div>
                                     </td>
                                 </tr>

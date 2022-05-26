@@ -9,10 +9,16 @@ use Illuminate\Http\Request;
 
 class PemesananController extends Controller
 {
-    public function index()
+    public function indexAPI()
     {
         $pembayarans = Pembayaran::all();
         return response()->json($pembayarans);
+    }
+
+    public function index()
+    {
+        $pembayarans = Pembayaran::paginate(10);
+        return view('pembayaran.index', ['pembayarans'=>$pembayarans]);
     }
 
     public function storeAPI(Request $request)
@@ -32,6 +38,30 @@ class PemesananController extends Controller
         return response()->json($pembayarans);
     }
 
+    public function store(Request $request)
+    {
+        $request->validate([
+            'gambar' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048'
+        ]);
+
+        $foto = $request->file('gambar');
+        $NamaFoto = time().'.'.$foto->extension();
+        $foto->move(public_path('foto/product'), $NamaFoto);
+
+        Pembayaran::create([
+            'nama' => $request->nama,
+            'jenis' => $request->jenis,
+            'kategori' => $request->kategori,
+            'jumlah' => $request->jumlah,
+            'status' => $request->status,
+            'harga' => $request->harga,
+            'gambar' => $NamaFoto,
+            'deskripsi' => $request->deskripsi,
+        ]);
+
+        return redirect(route('pembayaran'))->with('success','Data Pembayaran berhasil dibuat !');
+    }
+
     public function updateAPI(Request $request, $id)
     {
         $pembayarans = Pembayaran::where(['id'=>$id])->first();
@@ -48,11 +78,31 @@ class PemesananController extends Controller
         $pembayarans -> save();
         return response()->json($pembayarans);
     }
+
+    public function update(Request $request, $id)
+    {
+        $pembayarans = Pembayaran::find($id);
+        $pembayarans -> nama = $request->nama;
+        $pembayarans -> hargaPcs = $request->hargaPcs;
+        $pembayarans -> kategori = $request->kategori;
+        $pembayarans -> jumlah = $request->jumlah;
+        $pembayarans -> status = $request->status;
+        $pembayarans -> deskripsi = $request->deskripsi;
+        $pembayarans -> save();
+        return redirect(route('pembayaran'))->with('success','Data Pembayaran berhasil diubah !');
+    }
     
     public function destroyAPI(Request $request, $id)
     {
         $pembayarans = Pembayaran::where(['id'=>$id])->first();
         $pembayarans->delete();
         return response()->json($pembayarans); 
+    }
+
+    public function destroy(Request $request, $id)
+    {
+        $products = Pembayaran::find($id);
+        $products->delete();
+        return redirect(route('pembayaran'))->with('success','Data Pembayaran berhasil dihapus !');
     }
 }
