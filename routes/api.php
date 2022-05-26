@@ -33,5 +33,5 @@ Route::post('/data-pembayaran/tambah', 'PembayaranController@storeAPI');
 Route::put('/data-pembayaran/ubah/{id}', 'PembayaranController@updateAPI');
 Route::delete('/data-pembayaran/hapus/{id}', 'PembayaranController@destroyAPI');
 
-Route::post('login', 'Api\UserController@login');
-Route::post('register', 'Api\UserController@register');
+Route::post('/login', 'UserController@login');
+Route::post('/register', 'UserController@register');
