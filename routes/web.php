@@ -28,7 +28,7 @@ Route::post('/produk/Kirim/{id}', 'ProductController@update');
 Route::get('/produk/Hapus/{id}', 'ProductController@destroy');
 
 Route::get('/admin', [App\Http\Controllers\AdminController::class, 'admin'])->name('admin');
-
+Route::get('out', 'App\Http\Controllers\adminController@logout')->name('logout');
 
 Auth::routes();
 
