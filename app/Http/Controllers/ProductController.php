@@ -17,7 +17,12 @@ class ProductController extends Controller
     public function indexAPI()
     {
         $products = Product::all();
-        return response()->json($products);
+
+        return response()->json([
+            'success' => 1,
+            "message" => "Get Produk berhasil",
+            'products' => $products
+        ]);
     }
 
 
