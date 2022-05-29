@@ -1,14 +1,14 @@
-<div class="modal fade" id="tambahProduct" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="tambahPemesanan" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-xl">
     <div class="modal-content bg-light">
         
     
 
-        <form enctype="multipart/form-data" action="/produk/Simpan" method="post">
+        <form enctype="multipart/form-data" action="/pemesanan/Simpan" method="post">
                 {{ csrf_field() }}
 
         <div class="modal-header">
-            <h2 class="modal-title fw-bold text-center" id="exampleModalLabel">TAMBAH DATA PRODUK</h2>
+            <h2 class="modal-title fw-bold text-center" id="exampleModalLabel">TAMBAH DATA Pembayaran</h2>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
 

@@ -69,16 +69,16 @@
                     <ul id="sidebarnav">
                         <!-- User Profile-->
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="index.html" aria-expanded="false"><i class="mdi me-2 mdi-gauge"></i><span
+                                href="{{asset('admin')}}" aria-expanded="false"><i class="mdi me-2 mdi-gauge"></i><span
                                     class="hide-menu">Dashboard</span></a></li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="table-basic.html" aria-expanded="false"><i class="mdi me-2 mdi-table"></i><span
+                                href="{{asset('produk')}}" aria-expanded="false"><i class="mdi me-2 mdi-table"></i><span
                                     class="hide-menu">Product</span></a></li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="table-basic.html" aria-expanded="false"><i class="mdi me-2 mdi-table"></i><span
+                                href="{{asset('admin')}}" aria-expanded="false"><i class="mdi me-2 mdi-table"></i><span
                                     class="hide-menu">Pemesanan</span></a></li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="table-basic.html" aria-expanded="false"><i class="mdi me-2 mdi-table"></i><span
+                                href="{{asset('admin')}}" aria-expanded="false"><i class="mdi me-2 mdi-table"></i><span
                                     class="hide-menu">Pembayaran</span></a></li>
                         
                     </ul>
@@ -114,9 +114,9 @@
                 <div class="container">
                     <h2 class="mb-5 mt-5 fw-bold">DAFTAR PESANAN</h2>
 
-                    <a href="#" class="btn btn-success mb-4" data-bs-toggle="modal" data-bs-target="#tambahProduct">Tambah Data</a>
+                    <a href="#" class="btn btn-success mb-4" data-bs-toggle="modal" data-bs-target="#tambahPemesanan">Tambah Data</a>
 
-                    @include ('produk.modal.modalTambahProduk')
+                    @include ('pembayaran.modal.modalTambahProduk')
                 
                     <div class="table">
                         <table class="table table-striped table-bordered mb-5 ">
@@ -146,15 +146,15 @@
                                             &nbsp;
                                             <a href="#" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#def<?= $pembayaran->id ?>">Ubah</a>
                                             &nbsp;
-                                            <a href="/produk/Hapus/{{$pembayaran->id}}" class="btn btn-danger" >Hapus</a>
+                                            <a href="/pemesanan/Hapus/{{$pembayaran->id}}" class="btn btn-danger" >Hapus</a>
                                         </div>
                                     </td>
                                 </tr>
 
 
-                                @include('produk.modal.modalDetailProduk')
+                                @include('pembayaran.modal.modalDetailProduk')
                 
-                                @include('produk.modal.modalUbahProduk')
+                                @include('pembayaran.modal.modalUbahProduk')
 
                                 <?php $i++; ?>
                                 @endforeach

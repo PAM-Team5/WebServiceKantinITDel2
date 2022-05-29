@@ -57,7 +57,7 @@ class PemesananController extends Controller
             'deskripsi' => $request->deskripsi,
         ]);
 
-        return redirect(route('pembayaran'))->with('success','Data Pembayaran berhasil dibuat !');
+        return redirect(route('pesan'))->with('success','Data Pembayaran berhasil dibuat !');
     }
 
     public function updateAPI(Request $request, $id)
@@ -80,13 +80,13 @@ class PemesananController extends Controller
     {
         $pembayarans = Pembayaran::find($id);
         $pembayarans -> nama = $request->nama;
-        $pembayarans -> hargaPcs = $request->hargaPcs;
+        $pembayarans -> harga = $request->harga;
         $pembayarans -> kategori = $request->kategori;
         $pembayarans -> jumlah = $request->jumlah;
         $pembayarans -> status = $request->status;
         $pembayarans -> deskripsi = $request->deskripsi;
         $pembayarans -> save();
-        return redirect(route('pembayaran'))->with('success','Data Pembayaran berhasil diubah !');
+        return redirect(route('pesan'))->with('success','Data Pembayaran berhasil diubah !');
     }
     
     public function destroyAPI(Request $request, $id)
@@ -98,8 +98,8 @@ class PemesananController extends Controller
 
     public function destroy(Request $request, $id)
     {
-        $products = Pembayaran::find($id);
-        $products->delete();
-        return redirect(route('pembayaran'))->with('success','Data Pembayaran berhasil dihapus !');
+        $pembayarans = Pembayaran::find($id);
+        $pembayarans->delete();
+        return redirect(route('pesan'))->with('success','Data Pembayaran berhasil dihapus !');
     }
 }

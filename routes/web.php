@@ -19,13 +19,14 @@ Route::get('/', function () {
 
 
 Route::get('/produk', 'ProductController@index')->name('product');
-Route::get('/pemesanan', 'PemesananController@index')->name('product');
-
 Route::post('/produk/Simpan', 'ProductController@store');
-
 Route::post('/produk/Kirim/{id}', 'ProductController@update');
-
 Route::get('/produk/Hapus/{id}', 'ProductController@destroy');
+
+Route::get('/pemesanan', 'PemesananController@index')->name('pesan');
+Route::post('/pemesanan/Simpan', 'PemesananController@store');
+Route::post('/pemesanan/Kirim/{id}', 'PemesananController@update');
+Route::get('/pemesanan/Hapus/{id}', 'PemesananController@destroy');
 
 Route::get('/admin', [App\Http\Controllers\AdminController::class, 'admin'])->name('admin');
 Route::get('out', 'App\Http\Controllers\adminController@logout')->name('logout');

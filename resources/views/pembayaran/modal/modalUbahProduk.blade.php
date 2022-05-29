@@ -1,10 +1,10 @@
-<div class="modal fade" id="def<?= $product->id ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="def<?= $pembayaran->id ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-xl">
     <div class="modal-content bg-light">
         
     
 
-        <form enctype="multipart/form-data" action="/produk/Kirim/{{$product -> id}}" method="post">
+        <form enctype="multipart/form-data" action="/pemesanan/Kirim/{{$pembayaran -> id}}" method="post">
                 {{ csrf_field() }}
 
         <div class="modal-header">
@@ -18,7 +18,7 @@
             <div class="form-group mt-3">
                 <div class="d-flex justify-content-center">
                     <label class="mx-4 w-25" >Nama Produk</label>
-                    <input type="text" class="form-control mx-4"  name="nama" value="{{$product->nama}}" autofocus>
+                    <input type="text" class="form-control mx-4"  name="nama" value="{{$pembayaran->nama}}" autofocus>
                 </div>
             </div>
 
@@ -27,12 +27,12 @@
                 <div class="d-flex justify-content-center">
                     <label class="mx-4 w-25" >Status</label>
                     <select class="form-control custom-select mx-4" name="status" id="status">
-                        @if($product->status=='tersedia')
-                        <option value="{{$product->status}}">Tersedia</option>
+                        @if($pembayaran->status=='tersedia')
+                        <option value="{{$pembayaran->status}}">Tersedia</option>
                         <option value="habis">Habis</option>
                         @endif
-                        @if($product->status=='habis')
-                        <option value="{{$product->status}}">Habis</option>
+                        @if($pembayaran->status=='habis')
+                        <option value="{{$pembayaran->status}}">Habis</option>
                         <option value="tersedia">Tersedia</option>
                         @endif
                     </select>
@@ -43,7 +43,7 @@
                 <div class="d-flex justify-content-center">
                     <label class="mx-4 w-25" >Kategori</label>
                     <select class="form-control custom-select mx-4" name="kategori" id="kategori">
-                        <option value="{{$product->kategori}}">{{$product->kategori}} (ganti kategori)</option>
+                        <option value="{{$pembayaran->kategori}}">{{$pembayaran->kategori}} (ganti kategori)</option>
                         <option value="makanan">Makanan</option>
                         <option value="minuman">Minuman</option>
                         <option value="barang">Barang</option>
@@ -56,7 +56,7 @@
             <div class="form-group mt-3">
                 <div class="d-flex justify-content-center">
                     <label class="mx-4 w-25" >Jumlah</label>
-                    <input type="text" class="form-control mx-4"  name="jumlah" value="{{$product->jumlah}}" autofocus>
+                    <input type="text" class="form-control mx-4"  name="jumlah" value="{{$pembayaran->jumlah}}" autofocus>
                 </div>
             </div>
 
@@ -64,17 +64,17 @@
             <div class="form-group mt-3">
                 <div class="d-flex justify-content-center">
                     <label class="mx-4 w-25" >Harga Satuan</label>
-                    <input type="number" class="form-control mx-4"  name="hargaPcs" value="{{$product->hargaPcs}}" autofocus>
+                    <input type="number" class="form-control mx-4"  name="harga" value="{{$pembayaran->harga}}" autofocus>
                 </div>
             </div>
 
             <div class="form-group mt-3">
                 <div class="d-flex justify-content-center">
                     <label class="mx-4 w-25" >Gambar</label>
-                    <input type="file" name="gambar" class="form-control mx-4" value="{{$product->gambar}}" autofocus autocomplete="off">
+                    <input type="file" name="gambar" class="form-control mx-4" value="{{$pembayaran->gambar}}" autofocus autocomplete="off">
                 </div>
                 <div class="d-flex justify-content-start mt-3">
-                    <img src="/foto/product/{{$product->gambar}}" alt="" class="mr-5" width="200" style="margin-left: 270px">
+                    <img src="/foto/product/{{$pembayaran->gambar}}" alt="" class="mr-5" width="200" style="margin-left: 270px">
                 </div>
             </div>
 
@@ -82,7 +82,7 @@
             <div class="form-group mt-3">
                 <div class="d-flex justify-content-center">
                     <label class="mx-4 w-25">Deskripsi</label>
-                    <textarea class="form-control mx-4" name="deskripsi" cols="30" rows="10" autofocus autocomplete="off">{{ $product -> deskripsi }}</textarea>
+                    <textarea class="form-control mx-4" name="deskripsi" cols="30" rows="10" autofocus autocomplete="off">{{ $pembayaran -> deskripsi }}</textarea>
                 </div>
             </div>
 
