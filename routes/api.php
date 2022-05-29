@@ -18,7 +18,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-
+Route::get('/data-produk', 'ProductController@indexLamaAPI');
 Route::post('/data-produk/tambah', 'ProductController@storeAPI');
 Route::put('/data-produk/ubah/{id}', 'ProductController@updateAPI');
 Route::delete('/data-produk/hapus/{id}', 'ProductController@destroyAPI');

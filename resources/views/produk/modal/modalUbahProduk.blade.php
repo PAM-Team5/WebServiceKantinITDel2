@@ -74,7 +74,8 @@
                     <input type="file" name="gambar" class="form-control mx-4" value="{{$product->gambar}}" autofocus autocomplete="off">
                 </div>
                 <div class="d-flex justify-content-start mt-3">
-                    <img src="/foto/product/{{$product->gambar}}" alt="" class="mr-5" width="200" style="margin-left: 270px">
+                    <img src="" alt="" class="ml-5" width="200" style="visibility:hidden">
+                    <img src="/foto/product/{{$product->gambar}}" alt="" class="mr-5" width="200">
                 </div>
             </div>
 

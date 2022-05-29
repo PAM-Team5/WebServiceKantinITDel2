@@ -44,7 +44,7 @@
                 <div class="d-flex justify-content-center">
                     <label class="mx-4 w-25">Gambar</label>
                     <img src="/foto/product/{{$product->gambar}}" alt="" class="mr-5" width="200">
-                    <img src="" alt="" class="ml-5" width="770" style="visibility:hidden">
+                    <img src="" alt="" class="ml-5" width="450" style="visibility:hidden">
                 </div>
             </div>
 

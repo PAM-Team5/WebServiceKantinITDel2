@@ -25,6 +25,12 @@ class ProductController extends Controller
         ]);
     }
 
+    public function indexLamaAPI()
+    {
+        $products = Product::all();
+        return response()->json($products);
+    }
+
 
     public function index()
     {
