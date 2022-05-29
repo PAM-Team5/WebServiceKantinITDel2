@@ -6,13 +6,23 @@ use App\Models\Pembayaran;
 use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class PemesananController extends Controller
 {
     public function indexAPI()
     {
         $pembayarans = Pembayaran::all();
-        return response()->json($pembayarans);
+        if($pembayarans) {
+            return response()->json([
+                'success' => 1,
+                "message" => "Pemesanan berhasil",
+                'pembayarans' => $pembayarans
+            ]);
+        }else {
+            return $this->error('Pemesanan gagal');
+        }
+
     }
 
     public function index()
@@ -23,6 +33,7 @@ class PemesananController extends Controller
 
     public function storeAPI(Request $request)
     {
+<<<<<<< Updated upstream
         $pembayarans = new Pembayaran();
         $pembayarans -> nama = $request->input('nama');
         $pembayarans -> kategori = $request->input('kategori');
@@ -35,6 +46,48 @@ class PemesananController extends Controller
         $pembayarans -> ID_User = $request->input('ID_User');
         $pembayarans -> save();
         return response()->json($pembayarans);
+=======
+        $validasi = Validator::make($request->all(), [
+            'nama' => 'required',
+            'kategori' => 'required',
+            'jumlah' => 'required',
+            'status' => 'required',
+            'hargaPcs' => 'required',
+            'gambar' => 'required',
+            'deskripsi' => 'required',
+            'ID_Product' => 'required',
+            'ID_User' => 'required',
+        ]);
+
+        if($validasi->fails()) {
+            $val = $validasi->errors()->all();
+            return $this->error($val[0]);
+        }
+
+        $pembayarans = Pembayaran::create($request->all());
+
+        if($pembayarans) {
+
+            return response()->json([
+                'success' => 1,
+                "message" => "Pemesanan berhasil",
+                'pembayarans'=>$pembayarans
+            ]);
+        }
+
+        return $this->error('Pemesanan gagal');
+
+    }
+
+ 
+    
+
+    public function error($pesan) {
+        return response()->json([
+            'success' => 0,
+            "message" => $pesan
+        ]);
+>>>>>>> Stashed changes
     }
 
     public function store(Request $request)
