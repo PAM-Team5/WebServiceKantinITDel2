@@ -4,7 +4,7 @@
         
     
 
-        <form enctype="multipart/form-data" action="/pemesanan/Kirim/{{$pembayaran -> id}}" method="post">
+        <form enctype="multipart/form-data" action="/pemesanan/Kirim/{{$pembayaran->id}}" method="post">
                 {{ csrf_field() }}
 
         <div class="modal-header">
@@ -64,7 +64,7 @@
             <div class="form-group mt-3">
                 <div class="d-flex justify-content-center">
                     <label class="mx-4 w-25" >Harga Satuan</label>
-                    <input type="number" class="form-control mx-4"  name="harga" value="{{$pembayaran->harga}}" autofocus>
+                    <input type="number" class="form-control mx-4"  name="hargaPcs" value="{{$pembayaran->hargaPcs}}" autofocus>
                 </div>
             </div>
 

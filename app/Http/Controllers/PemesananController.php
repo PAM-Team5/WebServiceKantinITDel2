@@ -28,7 +28,7 @@ class PemesananController extends Controller
         $pembayarans -> kategori = $request->input('kategori');
         $pembayarans -> jumlah = $request->input('jumlah');
         $pembayarans -> status = $request->input('status');
-        $pembayarans -> harga = $request->input('harga');
+        $pembayarans -> hargaPcs = $request->input('hargaPcs');
         $pembayarans -> gambar = $request->input('gambar');
         $pembayarans -> deskripsi = $request->input('deskripsi');
         $pembayarans -> ID_Product = $request->input('ID_Product');
@@ -52,7 +52,7 @@ class PemesananController extends Controller
             'kategori' => $request->kategori,
             'jumlah' => $request->jumlah,
             'status' => $request->status,
-            'harga' => $request->harga,
+            'hargaPcs' => $request->hargaPcs,
             'gambar' => $NamaFoto,
             'deskripsi' => $request->deskripsi,
         ]);
@@ -67,7 +67,7 @@ class PemesananController extends Controller
         $pembayarans -> kategori = $request->input('kategori');
         $pembayarans -> jumlah = $request->input('jumlah');
         $pembayarans -> status = $request->input('status');
-        $pembayarans -> harga = $request->input('harga');
+        $pembayarans -> hargaPcs = $request->input('hargaPcs');
         $pembayarans -> gambar = $request->input('gambar');
         $pembayarans -> deskripsi = $request->input('deskripsi');
         $pembayarans -> ID_Product = $request->input('ID_Product');
@@ -80,7 +80,7 @@ class PemesananController extends Controller
     {
         $pembayarans = Pembayaran::find($id);
         $pembayarans -> nama = $request->nama;
-        $pembayarans -> harga = $request->harga;
+        $pembayarans -> hargaPcs = $request->hargaPcs;
         $pembayarans -> kategori = $request->kategori;
         $pembayarans -> jumlah = $request->jumlah;
         $pembayarans -> status = $request->status;

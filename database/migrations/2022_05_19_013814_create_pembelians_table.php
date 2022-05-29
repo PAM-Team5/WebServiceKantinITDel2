@@ -22,9 +22,9 @@ return new class extends Migration
             $table->bigInteger('hargaPcs');
             $table->text('gambar');
             $table->text('deskripsi');
-            $table->unsignedInteger('ID_Pemesanan');
+            $table->unsignedInteger('ID_Pemesanan')->nullable();
             $table->foreign('ID_Pemesanan')->references('id')->on('pemesanans')->onDelete('cascade');
-            $table->unsignedInteger('ID_User');
+            $table->unsignedInteger('ID_User')->nullable();
             $table->foreign('ID_User')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });

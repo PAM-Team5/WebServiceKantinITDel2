@@ -57,9 +57,9 @@
             <div class="form-group mt-3">
                 <div class="d-flex justify-content-center">
                     <label class="mx-4 w-25" >Harga Satuan</label>
-                    <input type="number" class="form-control mx-4"  name="harga" value="{{ old('harga') }}" autofocus autocomplete="off">
+                    <input type="number" class="form-control mx-4"  name="hargaPcs" value="{{ old('hargaPcs') }}" autofocus autocomplete="off">
                 </div>
-                @error('harga')
+                @error('hargaPcs')
                     <div class="alert-danger mt-2 mr-2">{{$message}}</div>
                 @enderror
             </div>

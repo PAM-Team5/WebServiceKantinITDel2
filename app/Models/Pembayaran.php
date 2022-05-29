@@ -11,6 +11,6 @@ class Pembayaran extends Model
     
     protected $table = 'pemesanans';
     
-    protected $fillable = ['nama', 'kategori','jumlah','status','harga','gambar','deskripsi','ID_User','ID_Product'];
+    protected $fillable = ['nama', 'kategori','jumlah','status','hargaPcs','gambar','deskripsi','ID_User','ID_Product'];
 
 }
