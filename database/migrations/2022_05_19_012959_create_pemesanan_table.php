@@ -16,11 +16,10 @@ return new class extends Migration
         Schema::create('pemesanans', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nama');
-            $table->string('jenis');
             $table->string('kategori');
             $table->integer('jumlah');
             $table->string('status');
-            $table->bigInteger('harga');
+            $table->bigInteger('hargaPcs');
             $table->text('gambar');
             $table->text('deskripsi');
             $table->unsignedInteger('ID_Product');

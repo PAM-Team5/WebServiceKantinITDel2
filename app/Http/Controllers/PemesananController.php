@@ -25,7 +25,6 @@ class PemesananController extends Controller
     {
         $pembayarans = new Pembayaran();
         $pembayarans -> nama = $request->input('nama');
-        $pembayarans -> jenis = $request->input('jenis');
         $pembayarans -> kategori = $request->input('kategori');
         $pembayarans -> jumlah = $request->input('jumlah');
         $pembayarans -> status = $request->input('status');
@@ -50,7 +49,6 @@ class PemesananController extends Controller
 
         Pembayaran::create([
             'nama' => $request->nama,
-            'jenis' => $request->jenis,
             'kategori' => $request->kategori,
             'jumlah' => $request->jumlah,
             'status' => $request->status,
@@ -66,7 +64,6 @@ class PemesananController extends Controller
     {
         $pembayarans = Pembayaran::where(['id'=>$id])->first();
         $pembayarans -> nama = $request->input('nama');
-        $pembayarans -> jenis = $request->input('jenis');
         $pembayarans -> kategori = $request->input('kategori');
         $pembayarans -> jumlah = $request->input('jumlah');
         $pembayarans -> status = $request->input('status');

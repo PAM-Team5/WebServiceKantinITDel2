@@ -23,6 +23,9 @@ Route::post('/data-produk/tambah', 'ProductController@storeAPI');
 Route::put('/data-produk/ubah/{id}', 'ProductController@updateAPI');
 Route::delete('/data-produk/hapus/{id}', 'ProductController@destroyAPI');
 
+Route::get('/pemesanan', 'PemesananController@indexAPI')->name('pemesanan');
+Route::post('/pemesanan/tambah', 'PemesananController@storeAPI');
+
 Route::get('/data-pembelian', 'PembelianController@indexAPI')->name('data-pembelian');
 Route::post('/data-pembelian/tambah', 'PembelianController@storeAPI');
 Route::put('/data-pembelian/ubah/{id}', 'PembelianController@updateAPI');
