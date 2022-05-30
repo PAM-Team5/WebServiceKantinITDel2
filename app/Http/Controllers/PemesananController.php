@@ -33,20 +33,7 @@ class PemesananController extends Controller
 
     public function storeAPI(Request $request)
     {
-<<<<<<< Updated upstream
-        $pembayarans = new Pembayaran();
-        $pembayarans -> nama = $request->input('nama');
-        $pembayarans -> kategori = $request->input('kategori');
-        $pembayarans -> jumlah = $request->input('jumlah');
-        $pembayarans -> status = $request->input('status');
-        $pembayarans -> hargaPcs = $request->input('hargaPcs');
-        $pembayarans -> gambar = $request->input('gambar');
-        $pembayarans -> deskripsi = $request->input('deskripsi');
-        $pembayarans -> ID_Product = $request->input('ID_Product');
-        $pembayarans -> ID_User = $request->input('ID_User');
-        $pembayarans -> save();
-        return response()->json($pembayarans);
-=======
+
         $validasi = Validator::make($request->all(), [
             'nama' => 'required',
             'kategori' => 'required',
@@ -87,7 +74,6 @@ class PemesananController extends Controller
             'success' => 0,
             "message" => $pesan
         ]);
->>>>>>> Stashed changes
     }
 
     public function store(Request $request)
