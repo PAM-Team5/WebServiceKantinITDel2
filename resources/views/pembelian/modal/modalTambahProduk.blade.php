@@ -2,13 +2,16 @@
     <div class="modal-dialog modal-dialog-centered modal-xl">
     <div class="modal-content bg-light">
         
-        <form enctype="multipart/form-data" action="/pemesanan/Simpan" method="post">
+    
+
+        <form enctype="multipart/form-data" action="/pembelian/Simpan" method="post">
                 {{ csrf_field() }}
 
         <div class="modal-header">
-            <h2 class="modal-title fw-bold text-center" id="exampleModalLabel">TAMBAH DATA PEMBELIAN</h2>
+            <h2 class="modal-title fw-bold text-center" id="exampleModalLabel">TAMBAH DATA Pembayaran</h2>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
+
 
         <div class="modal-body row">
 
@@ -21,6 +24,8 @@
                     <div class="alert-danger mt-2 mr-2">{{$message}}</div>
                 @enderror
             </div>
+
+
 
             <div class="form-group mt-3">
                 <div class="d-flex justify-content-center">

@@ -78,7 +78,7 @@
                                 href="{{asset('pemesanan')}}" aria-expanded="false"><i class="mdi me-2 mdi-table"></i><span
                                     class="hide-menu">Pemesanan</span></a></li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="{{asset('admin')}}" aria-expanded="false"><i class="mdi me-2 mdi-table"></i><span
+                                href="{{asset('pembelian')}}" aria-expanded="false"><i class="mdi me-2 mdi-table"></i><span
                                     class="hide-menu">Pembayaran</span></a></li>
                         
                     </ul>

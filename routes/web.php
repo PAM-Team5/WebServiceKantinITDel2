@@ -28,6 +28,11 @@ Route::post('/pemesanan/Simpan', 'PemesananController@store');
 Route::post('/pemesanan/Kirim/{id}', 'PemesananController@update');
 Route::get('/pemesanan/Hapus/{id}', 'PemesananController@destroy');
 
+Route::get('/pembelian', 'PembelianController@index')->name('beli');
+Route::post('/pembelian/Simpan', 'PembelianController@store');
+Route::post('/pembelian/Kirim/{id}', 'PembelianController@update');
+Route::get('/pembelian/Hapus/{id}', 'PembelianController@destroy');
+
 Route::get('/admin', [App\Http\Controllers\AdminController::class, 'admin'])->name('admin');
 Route::get('out', 'App\Http\Controllers\adminController@logout')->name('logout');
 
