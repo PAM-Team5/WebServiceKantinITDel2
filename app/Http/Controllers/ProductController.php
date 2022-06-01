@@ -111,9 +111,10 @@ class ProductController extends Controller
         ]);
 
         $foto = $request->file('gambar');
-        $foto2 = $request->file('gambar');
-        $NamaFoto = time().'.'.$foto->extension();
-        $foto->move(public_path('foto/product'), $NamaFoto);
+        
+        $path = $foto->store('product', 'public');
+        
+        $foto->move(public_path('foto/product'), $path);
 
 
         Product::create([
@@ -122,7 +123,7 @@ class ProductController extends Controller
             'kategori' => $request->kategori,
             'jumlah' => $request->jumlah,
             'status' => $request->status,
-            'gambar' => $NamaFoto,
+            'gambar' => basename($path),
             'deskripsi' => $request->deskripsi,
         ]);
 
@@ -160,13 +161,21 @@ class ProductController extends Controller
      */
     public function updateAPI(Request $request, $id)
     {
+
+        $validator = Validator::make($request->all(), [
+            'gambar' => 'required|image:jpeg,png,jpg,gif,svg|max:2048'
+         ]);
+
+        $foto = $request->file('gambar');
+        $path = $foto->store('product', 'public');
+
         $products = Product::where(['id'=>$id])->first();
         $products -> nama = $request->input('nama');
         $products -> hargaPcs = $request->input('hargaPcs');
         $products -> kategori = $request->input('kategori');
         $products -> jumlah = $request->input('jumlah');
         $products -> status = $request->input('status');
-        $products -> gambar = $request->input('gambar');
+        $products -> gambar = basename($path);
         $products -> deskripsi = $request->input('deskripsi');
         $products -> save();
         return response()->json($products);
@@ -174,12 +183,19 @@ class ProductController extends Controller
 
     public function update(Request $request, $id)
     {
+        $foto = $request->file('gambar');
+        
+        $path = $foto->store('product', 'public');
+        
+        $foto->move(public_path('foto/product'), $path);
+
         $products = Product::find($id);
         $products -> nama = $request->nama;
         $products -> hargaPcs = $request->hargaPcs;
         $products -> kategori = $request->kategori;
         $products -> jumlah = $request->jumlah;
         $products -> status = $request->status;
+        $products -> gambar = basename($path);
         $products -> deskripsi = $request->deskripsi;
         $products -> save();
         return redirect(route('product'))->with('success','Data Product berhasil diubah !');
