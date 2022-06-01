@@ -6,6 +6,8 @@ use App\Models\Product;
 use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Validator;
 
 class ProductController extends Controller
 {
@@ -82,9 +84,12 @@ class ProductController extends Controller
     public function storeAPI(Request $request)
     {
 
+        $validator = Validator::make($request->all(), [
+            'gambar' => 'required|image:jpeg,png,jpg,gif,svg|max:2048'
+         ]);
+
         $foto = $request->file('gambar');
-        $NamaFoto = time().'.'.substr(strrchr($foto,'.'),1);
-        $foto->store(public_path('foto/product'), $NamaFoto);
+        $path = $foto->store('product', 'public');
 
 
         $products = new Product;
@@ -93,7 +98,7 @@ class ProductController extends Controller
         $products -> kategori = $request->input('kategori');
         $products -> jumlah = $request->input('jumlah');
         $products -> status = $request->input('status');
-        $products -> gambar = $NamaFoto;
+        $products -> gambar = basename($path);
         $products -> deskripsi = $request->input('deskripsi');
         $products -> save();
         return response()->json($products);
@@ -106,8 +111,10 @@ class ProductController extends Controller
         ]);
 
         $foto = $request->file('gambar');
+        $foto2 = $request->file('gambar');
         $NamaFoto = time().'.'.$foto->extension();
         $foto->move(public_path('foto/product'), $NamaFoto);
+
 
         Product::create([
             'nama' => $request->nama,
