@@ -31,6 +31,30 @@ class ProductController extends Controller
         return response()->json($products);
     }
 
+    public function indexAPIMakanan()
+    {
+        $products = Product::where('kategori','makanan')->get();
+        return response()->json($products);
+    }
+
+    public function indexAPIMinuman()
+    {
+        $products = Product::where('kategori','minuman')->get();
+        return response()->json($products);
+    }
+
+    public function indexAPIRuangan()
+    {
+        $products = Product::where('kategori','ruangan')->get();
+        return response()->json($products);
+    }
+
+    public function indexAPIPulsa()
+    {
+        $products = Product::where('kategori','pulsa')->get();
+        return response()->json($products);
+    }
+
 
     public function index()
     {
@@ -57,13 +81,19 @@ class ProductController extends Controller
      */
     public function storeAPI(Request $request)
     {
+
+        $foto = $request->file('gambar');
+        $NamaFoto = time().'.'.substr(strrchr($foto,'.'),1);
+        $foto->store(public_path('foto/product'), $NamaFoto);
+
+
         $products = new Product;
         $products -> nama = $request->input('nama');
         $products -> hargaPcs = $request->input('hargaPcs');
         $products -> kategori = $request->input('kategori');
         $products -> jumlah = $request->input('jumlah');
         $products -> status = $request->input('status');
-        $products -> gambar = $request->input('gambar');
+        $products -> gambar = $NamaFoto;
         $products -> deskripsi = $request->input('deskripsi');
         $products -> save();
         return response()->json($products);

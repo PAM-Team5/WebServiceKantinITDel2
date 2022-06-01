@@ -18,13 +18,31 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::get('/produk', 'ProductController@indexAPI');
+
 Route::get('/data-produk', 'ProductController@indexLamaAPI');
+
+Route::get('/data-produk/makanan', 'ProductController@indexAPIMakanan');
+Route::get('/data-produk/minuman', 'ProductController@indexAPIMinuman');
+Route::get('/data-produk/ruangan', 'ProductController@indexAPIRuangan');
+Route::get('/data-produk/pulsa', 'ProductController@indexAPIPulsa');
+
+
+
 Route::post('/data-produk/tambah', 'ProductController@storeAPI');
 Route::put('/data-produk/ubah/{id}', 'ProductController@updateAPI');
 Route::delete('/data-produk/hapus/{id}', 'ProductController@destroyAPI');
 
+
+
+
+
+
+
+
 Route::get('/pemesanan', 'PemesananController@indexAPI')->name('pemesanan');
 Route::post('/pemesanan/tambah', 'PemesananController@storeAPI');
+Route::delete('/pemesanan/hapus/{id}', 'PemesananController@destroyAPI');
 
 Route::get('/data-pembelian', 'PembelianController@indexAPI')->name('data-pembelian');
 Route::post('/data-pembelian/tambah', 'PembelianController@storeAPI');
