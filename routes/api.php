@@ -22,11 +22,20 @@ Route::get('/produk', 'ProductController@indexAPI');
 
 Route::get('/data-produk', 'ProductController@indexLamaAPI');
 
-Route::get('/data-produk/makanan', 'ProductController@indexAPIMakanan');
-Route::get('/data-produk/minuman', 'ProductController@indexAPIMinuman');
-Route::get('/data-produk/ruangan', 'ProductController@indexAPIRuangan');
-Route::get('/data-produk/pulsa', 'ProductController@indexAPIPulsa');
+Route::get('/data-produk/makananKoperasi', 'ProductController@indexAPIMakananKoperasi');
+Route::get('/data-produk/makananKantin', 'ProductController@indexAPIMakananKantin');
 
+Route::get('/data-produk/minumanKoperasi', 'ProductController@indexAPIMinumanKoperasi');
+Route::get('/data-produk/minumanKantin', 'ProductController@indexAPIMinumanKantin');
+
+Route::get('/data-produk/ruanganKoperasi', 'ProductController@indexAPIRuanganKoperasi');
+Route::get('/data-produk/ruanganKantin', 'ProductController@indexAPIRuanganKantin');
+
+Route::get('/data-produk/pulsaKoperasi', 'ProductController@indexAPIPulsaKoperasi');
+Route::get('/data-produk/pulsaKantin', 'ProductController@indexAPIPulsaKantin');
+
+Route::get('/data-produk/barangKoperasi', 'ProductController@indexAPIBarangKoperasi');
+Route::get('/data-produk/barangKantin', 'ProductController@indexAPIBarangKantin');
 
 
 Route::post('/data-produk/tambah', 'ProductController@storeAPI');

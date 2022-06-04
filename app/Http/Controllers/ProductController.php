@@ -33,27 +33,64 @@ class ProductController extends Controller
         return response()->json($products);
     }
 
-    public function indexAPIMakanan()
+    public function indexAPIMakananKoperasi()
     {
-        $products = Product::where('kategori','makanan')->get();
+        $products = Product::where('kategori','makanan')->where('role','admin-koperasi')->get();
         return response()->json($products);
     }
 
-    public function indexAPIMinuman()
+    public function indexAPIMakananKantin()
     {
-        $products = Product::where('kategori','minuman')->get();
+        $products = Product::where('kategori','makanan')->where('role','admin-kantin')->get();
         return response()->json($products);
     }
 
-    public function indexAPIRuangan()
+    public function indexAPIMinumanKoperasi()
     {
-        $products = Product::where('kategori','ruangan')->get();
+        $products = Product::where('kategori','minuman')->where('role','admin-koperasi')->get();
         return response()->json($products);
     }
 
-    public function indexAPIPulsa()
+
+    public function indexAPIMinumanKantin()
     {
-        $products = Product::where('kategori','pulsa')->get();
+        $products = Product::where('kategori','minuman')->where('role','admin-kantin')->get();
+        return response()->json($products);
+    }
+
+    public function indexAPIRuanganKoperasi()
+    {
+        $products = Product::where('kategori','ruangan')->where('role','admin-koperasi')->get();
+        return response()->json($products);
+    }
+
+    public function indexAPIRuanganKantin()
+    {
+        $products = Product::where('kategori','ruangan')->where('role','admin-kantin')->get();
+        return response()->json($products);
+    }
+
+    public function indexAPIPulsaKoperasi()
+    {
+        $products = Product::where('kategori','pulsa')->where('role','admin-koperasi')->get();
+        return response()->json($products);
+    }
+
+    public function indexAPIPulsaKantin()
+    {
+        $products = Product::where('kategori','pulsa')->where('role','admin-kantin')->get();
+        return response()->json($products);
+    }
+
+    public function indexAPIBarangKoperasi()
+    {
+        $products = Product::where('kategori','barang')->where('role','admin-koperasi')->get();
+        return response()->json($products);
+    }
+
+    public function indexAPIBarangKantin()
+    {
+        $products = Product::where('kategori','barang')->where('role','admin-kantin')->get();
         return response()->json($products);
     }
 
@@ -88,8 +125,8 @@ class ProductController extends Controller
             'gambar' => 'required|image:jpeg,png,jpg,gif,svg|max:2048'
          ]);
 
-        $foto = $request->file('gambar');
-        $path = $foto->store('product', 'public');
+        // $foto = $request->file('gambar');
+        // $path = $foto->store('product', 'public');
 
 
         $products = new Product;
@@ -98,8 +135,10 @@ class ProductController extends Controller
         $products -> kategori = $request->input('kategori');
         $products -> jumlah = $request->input('jumlah');
         $products -> status = $request->input('status');
-        $products -> gambar = basename($path);
+        //$products -> gambar = basename($path);
+        $products -> gambar = $request->input('gambar');
         $products -> deskripsi = $request->input('deskripsi');
+        $products -> role = $request->input('role');
         $products -> save();
         return response()->json($products);
     }
@@ -166,8 +205,8 @@ class ProductController extends Controller
             'gambar' => 'required|image:jpeg,png,jpg,gif,svg|max:2048'
          ]);
 
-        $foto = $request->file('gambar');
-        $path = $foto->store('product', 'public');
+        // $foto = $request->file('gambar');
+        // $path = $foto->store('product', 'public');
 
         $products = Product::where(['id'=>$id])->first();
         $products -> nama = $request->input('nama');
@@ -175,7 +214,8 @@ class ProductController extends Controller
         $products -> kategori = $request->input('kategori');
         $products -> jumlah = $request->input('jumlah');
         $products -> status = $request->input('status');
-        $products -> gambar = basename($path);
+        //$products -> gambar = basename($path);
+        $products -> gambar = $request->input('gambar');
         $products -> deskripsi = $request->input('deskripsi');
         $products -> save();
         return response()->json($products);
