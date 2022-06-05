@@ -22,11 +22,15 @@ return new class extends Migration
             $table->bigInteger('hargaPcs');
             $table->text('gambar');
             $table->text('deskripsi');
+            $table->string('role');
+            $table->bigInteger('harga');
             $table->unsignedInteger('ID_Product')->nullable();
             $table->foreign('ID_Product')->references('id')->on('products')->onDelete('cascade');
             $table->unsignedInteger('ID_User')->nullable();
             $table->foreign('ID_User')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
+            $table->unsignedInteger('ID_Pembelian')->nullable();
+            $table->foreign('ID_Pembelian')->references('id')->on('pembelians')->onDelete('cascade');
         });
     }
 

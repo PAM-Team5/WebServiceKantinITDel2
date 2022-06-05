@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Pembayaran;
+use App\Models\Pemesanan;
 use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
 use Illuminate\Http\Request;
@@ -12,12 +12,12 @@ class PemesananController extends Controller
 {
     public function indexAPI()
     {
-        $pembayarans = Pembayaran::all();
-        if($pembayarans) {
+        $pemesanan = Pemesanan::all();
+        if($pemesanan) {
             return response()->json([
                 'success' => 1,
                 "message" => "Pemesanan berhasil",
-                'pembayarans' => $pembayarans
+                'pemesanan' => $pemesanan
             ]);
         }else {
             return $this->error('Pemesanan gagal');
@@ -27,8 +27,8 @@ class PemesananController extends Controller
 
     public function index()
     {
-        $pembayarans = Pembayaran::paginate(10);
-        return view('pembayaran.index', ['pembayarans'=>$pembayarans]);
+        $pemesanan = Pemesanan::paginate(10);
+        return view('pembayaran.index', ['pembayarans'=>$pemesanan]);
     }
 
     public function storeAPI(Request $request)
@@ -44,6 +44,8 @@ class PemesananController extends Controller
             'deskripsi' => 'required',
             'ID_Product' => 'required',
             'ID_User' => 'required',
+            'role' => 'required',
+            'harga' => 'required'
         ]);
 
         if($validasi->fails()) {
@@ -51,14 +53,14 @@ class PemesananController extends Controller
             return $this->error($val[0]);
         }
 
-        $pembayarans = Pembayaran::create($request->all());
+        $pemesanan = Pemesanan::create($request->all());
 
-        if($pembayarans) {
+        if($pemesanan) {
 
             return response()->json([
                 'success' => 1,
                 "message" => "Pemesanan berhasil",
-                'pembayarans'=>$pembayarans
+                'pembayarans'=>$pemesanan
             ]);
         }
 
@@ -86,7 +88,7 @@ class PemesananController extends Controller
         $NamaFoto = time().'.'.$foto->extension();
         $foto->move(public_path('foto/product'), $NamaFoto);
 
-        Pembayaran::create([
+        Pemesanan::create([
             'nama' => $request->nama,
             'kategori' => $request->kategori,
             'jumlah' => $request->jumlah,
@@ -101,44 +103,37 @@ class PemesananController extends Controller
 
     public function updateAPI(Request $request, $id)
     {
-        $pembayarans = Pembayaran::where(['id'=>$id])->first();
-        $pembayarans -> nama = $request->input('nama');
-        $pembayarans -> kategori = $request->input('kategori');
-        $pembayarans -> jumlah = $request->input('jumlah');
-        $pembayarans -> status = $request->input('status');
-        $pembayarans -> hargaPcs = $request->input('hargaPcs');
-        $pembayarans -> gambar = $request->input('gambar');
-        $pembayarans -> deskripsi = $request->input('deskripsi');
-        $pembayarans -> ID_Product = $request->input('ID_Product');
-        $pembayarans -> ID_User = $request->input('ID_User');
-        $pembayarans -> save();
-        return response()->json($pembayarans);
+        $pemesanan = Pemesanan::where(['id'=>$id])->first();
+        $pemesanan -> jumlah = $request->input('jumlah');
+        $pemesanan -> harga = $request->input('harga');
+        $pemesanan -> save();
+        return response()->json($pemesanan);
     }
 
     public function update(Request $request, $id)
     {
-        $pembayarans = Pembayaran::find($id);
-        $pembayarans -> nama = $request->nama;
-        $pembayarans -> hargaPcs = $request->hargaPcs;
-        $pembayarans -> kategori = $request->kategori;
-        $pembayarans -> jumlah = $request->jumlah;
-        $pembayarans -> status = $request->status;
-        $pembayarans -> deskripsi = $request->deskripsi;
-        $pembayarans -> save();
+        $pemesanan = Pemesanan::find($id);
+        $pemesanan -> nama = $request->nama;
+        $pemesanan -> hargaPcs = $request->hargaPcs;
+        $pemesanan -> kategori = $request->kategori;
+        $pemesanan -> jumlah = $request->jumlah;
+        $pemesanan -> status = $request->status;
+        $pemesanan -> deskripsi = $request->deskripsi;
+        $pemesanan -> save();
         return redirect(route('pesan'))->with('success','Data Pembayaran berhasil diubah !');
     }
     
     public function destroyAPI(Request $request, $id)
     {
-        $pembayarans = Pembayaran::where(['id'=>$id])->first();
-        $pembayarans->delete();
-        return response()->json($pembayarans); 
+        $pemesanan = Pemesanan::where(['id'=>$id])->first();
+        $pemesanan->delete();
+        return response()->json($pemesanan); 
     }
 
     public function destroy(Request $request, $id)
     {
-        $pembayarans = Pembayaran::find($id);
-        $pembayarans->delete();
+        $pemesanan = Pemesanan::find($id);
+        $pemesanan->delete();
         return redirect(route('pesan'))->with('success','Data Pembayaran berhasil dihapus !');
     }
 }

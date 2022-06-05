@@ -27,11 +27,11 @@ class ProductController extends Controller
         ]);
     }
 
-    public function indexLamaAPI()
-    {
-        $products = Product::all();
-        return response()->json($products);
-    }
+    // public function indexLamaAPI()
+    // {
+    //     $products = Product::all();
+    //     return response()->json($products);
+    // }
 
     public function indexAPIMakananKoperasi()
     {
@@ -141,6 +141,7 @@ class ProductController extends Controller
         $products -> role = $request->input('role');
         $products -> save();
         return response()->json($products);
+        
     }
 
     public function store(Request $request)

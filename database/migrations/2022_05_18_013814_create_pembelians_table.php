@@ -15,17 +15,8 @@ return new class extends Migration
     {
         Schema::create('pembelians', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nama');
-            $table->string('kategori');
             $table->integer('jumlah');
-            $table->string('status');
-            $table->bigInteger('hargaPcs');
-            $table->text('gambar');
-            $table->text('deskripsi');
-            $table->unsignedInteger('ID_Pemesanan')->nullable();
-            $table->foreign('ID_Pemesanan')->references('id')->on('pemesanans')->onDelete('cascade');
-            $table->unsignedInteger('ID_User')->nullable();
-            $table->foreign('ID_User')->references('id')->on('users')->onDelete('cascade');
+            $table->text('deskripsi')->nullable();
             $table->timestamps();
         });
     }
