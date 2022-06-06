@@ -15,6 +15,12 @@ class PembelianController extends Controller
         return response()->json($pembelians);
     }
 
+    public function indexAPI()
+    {
+        $pembelians = Pembelian::all();
+        return response()->json($pembelians);
+    }
+
      public function index()
     {
         $pembelians = Pembelian::paginate(10);
