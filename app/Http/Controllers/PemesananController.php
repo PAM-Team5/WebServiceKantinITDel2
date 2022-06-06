@@ -115,6 +115,7 @@ class PemesananController extends Controller
     {
         $pemesanan = Pemesanan::where(['id'=>$id])->first();
         $pemesanan -> status = $request->input('status');
+        $pemesanan -> ID_Pembelian = $request->input('ID_Pembelian');
         $pemesanan -> save();
         return response()->json($pemesanan);
     }
