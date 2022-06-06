@@ -14,10 +14,13 @@ return new class extends Migration
     public function up()
     {
         Schema::create('pembelians', function (Blueprint $table) {
-            $table->increments('id');
+            $table->integer('id')->unique();
             $table->integer('jumlah');
+            $table->integer('harga');
             $table->text('deskripsi')->nullable();
             $table->string('status');
+            $table->unsignedInteger('ID_User')->nullable();
+            $table->foreign('ID_User')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

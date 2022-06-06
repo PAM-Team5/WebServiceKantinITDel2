@@ -9,9 +9,9 @@ use Illuminate\Http\Request;
 
 class PembelianController extends Controller
 {
-    public function indexAPI()
+    public function indexAPIByID($ID_User)
     {
-        $pembelians = Pembelian::all();
+        $pembelians = Pembelian::where(['ID_User'=>$ID_User])->get();
         return response()->json($pembelians);
     }
 
@@ -24,8 +24,11 @@ class PembelianController extends Controller
     public function storeAPI(Request $request)
     {
         $pembelians = new Pembelian();
+        $pembelians -> id = $request->input('id');
         $pembelians -> jumlah = $request->input('jumlah');
         $pembelians -> status = $request->input('status');
+        $pembelians -> harga = $request->input('harga');
+        $pembelians -> ID_User = $request->input('ID_User');
         $pembelians -> save();
         return response()->json($pembelians);
     }
@@ -47,7 +50,7 @@ class PembelianController extends Controller
             'status' => $request->status,
             'hargaPcs' => $request->hargaPcs,
             'gambar' => $NamaFoto,
-            'deskripsi' => $request->deskripsi,
+            'deskripsi' => $request->deskripsi
         ]);
 
         return redirect(route('beli'))->with('success','Data Pembelian berhasil dibuat !');

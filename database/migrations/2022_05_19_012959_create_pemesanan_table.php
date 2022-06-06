@@ -29,8 +29,7 @@ return new class extends Migration
             $table->unsignedInteger('ID_User')->nullable();
             $table->foreign('ID_User')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
-            $table->unsignedInteger('ID_Pembelian')->nullable();
-            $table->foreign('ID_Pembelian')->references('id')->on('pembelians')->onDelete('cascade');
+            $table->integer('ID_Pembelian')->nullable();
         });
     }
 

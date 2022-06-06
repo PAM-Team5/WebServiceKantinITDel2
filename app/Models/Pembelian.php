@@ -11,5 +11,5 @@ class Pembelian extends Model
 
     protected $table = 'pembelians';
     
-    protected $fillable = ['jumlah','status','harga','deskripsi'];
+    protected $fillable = ['jumlah','status','harga','deskripsi','ID_User'];
 }

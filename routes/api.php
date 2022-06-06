@@ -54,10 +54,11 @@ Route::post('/pemesanan/tambah', 'PemesananController@storeAPI');
 Route::put('/pemesanan/ubah/{id}', 'PemesananController@updateAPI');
 Route::delete('/pemesanan/hapus/{id}', 'PemesananController@destroyAPI');
 Route::put('/pemesananBayar/ubah/{id}', 'PemesananController@updatePembelianAPI');
+Route::put('/pemesananJumlah/ubah/{id}', 'PemesananController@updateJumlahAPI');
 
 // PEMBELIAN
 
-Route::get('/pembelian', 'PembelianController@indexAPI')->name('pembelian');
+Route::get('/pembelian/{ID_User}', 'PembelianController@indexAPIByID')->name('pembelian');
 Route::post('/pembelian/tambah', 'PembelianController@storeAPI');
 Route::put('/pembelian/ubah/{id}', 'PembelianController@updateAPI');
 Route::delete('/pembelian/hapus/{id}', 'PembelianController@destroyAPI');
