@@ -136,10 +136,9 @@
 
                                 <tr>
                                     <td class="text-center">{{$i}}</td>
-                                    <td class="text-center">{{$pembelian -> nama}}</td>
-                                    <td class="text-center">{{$pembelian -> kategori}}</td>
                                     <td class="text-center">{{$pembelian -> jumlah}}</td>
-                                    <td class="text-center">Rp {{$pembelian -> hargaPcs}} / pcs</td>
+                                    <td class="text-center">Rp {{$pembelian -> harga}}</td>
+                                    <td class="text-center">{{$pembelian -> status}}</td>
                                     <td class="text-center">
                                         <div class="d-flex justify-content-around">
                                             <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#abc<?= $pembelian->id ?>">Detail</button>

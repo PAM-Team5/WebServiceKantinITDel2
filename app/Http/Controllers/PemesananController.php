@@ -96,6 +96,7 @@ class PemesananController extends Controller
             'hargaPcs' => $request->hargaPcs,
             'gambar' => $NamaFoto,
             'deskripsi' => $request->deskripsi,
+            'harga' => $request->harga,
         ]);
 
         return redirect(route('pesan'))->with('success','Data Pembayaran berhasil dibuat !');

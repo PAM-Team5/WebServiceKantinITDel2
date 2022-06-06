@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('gambar');
             $table->string('deskripsi');
             $table->bigInteger('hargaPcs');
-            $table->string('role');
+            $table->string('role')->nullable();
             $table->timestamps();
         });
     }

@@ -35,21 +35,10 @@ class PembelianController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
-            'gambar' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048'
-        ]);
-
-        $foto = $request->file('gambar');
-        $NamaFoto = time().'.'.$foto->extension();
-        $foto->move(public_path('foto/product'), $NamaFoto);
-
         Pembelian::create([
-            'nama' => $request->nama,
-            'kategori' => $request->kategori,
             'jumlah' => $request->jumlah,
             'status' => $request->status,
-            'hargaPcs' => $request->hargaPcs,
-            'gambar' => $NamaFoto,
+            'harga' => $request->harga,
             'deskripsi' => $request->deskripsi
         ]);
 
@@ -67,12 +56,10 @@ class PembelianController extends Controller
     public function update(Request $request, $id)
     {
         $pembelians = Pembelian::find($id);
-        $pembelians -> nama = $request->nama;
-        $pembelians -> hargaPcs = $request->hargaPcs;
-        $pembelians -> kategori = $request->kategori;
         $pembelians -> jumlah = $request->jumlah;
-        $pembelians -> status = $request->status;
+        $pembelians -> harga = $request->harga;
         $pembelians -> deskripsi = $request->deskripsi;
+        $pembelians -> status = $request->status;
         $pembelians -> save();
         return redirect(route('beli'))->with('success','Data Pembelian berhasil diubah !');
     }
