@@ -62,7 +62,7 @@
                     <div class="col-lg-6 order-lg-1">
                         <div class="p-5">
                             <h2 class="display-4">Pesan Makanan...</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod aliquid, mollitia odio veniam sit iste esse assumenda amet aperiam exercitationem, ea animi blanditiis recusandae! Ratione voluptatum molestiae adipisci, beatae obcaecati.</p>
+                            <p>Dari makanan porsi kecil sampai porsi besar, kami tidak akan membatasi nafsu makanmu. Langsung saja pesan semua yang kamu mau.</p>
                         </div>
                     </div>
                 </div>
@@ -78,7 +78,7 @@
                     <div class="col-lg-6">
                         <div class="p-5">
                             <h2 class="display-4">Pesan Minuman</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod aliquid, mollitia odio veniam sit iste esse assumenda amet aperiam exercitationem, ea animi blanditiis recusandae! Ratione voluptatum molestiae adipisci, beatae obcaecati.</p>
+                            <p>Kamu hauss?? Pesan minuman kesukaanmu di Kantin Kita aja, minuman nya murah dan banyak fariannya loh. Langsung saja pesan semua yang kamu mau.</p>
                         </div>
                     </div>
                 </div>
@@ -94,7 +94,7 @@
                     <div class="col-lg-6 order-lg-1">
                         <div class="p-5">
                             <h2 class="display-4">Pesan Snack dan barang lainya</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod aliquid, mollitia odio veniam sit iste esse assumenda amet aperiam exercitationem, ea animi blanditiis recusandae! Ratione voluptatum molestiae adipisci, beatae obcaecati.</p>
+                            <p>Kamu pengen ngemil, apalagi jam kuliah yang cukup padat. Ayok jajan di Kantin kita, ada banyak cemilan yang enak loh. Kamu dapat memilih sesuai kemauan kamu. Jika kamu butuh alat atau barang sesuai kebutuhan kuliah kamu, kamu dapat juga akan dapat kan disini loh. Segera pesan!!</p>
                         </div>
                     </div>
                 </div>
@@ -109,7 +109,7 @@
                     <div class="col-lg-6">
                         <div class="p-5">
                             <h2 class="display-4">Pesan Ruangan</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod aliquid, mollitia odio veniam sit iste esse assumenda amet aperiam exercitationem, ea animi blanditiis recusandae! Ratione voluptatum molestiae adipisci, beatae obcaecati.</p>
+                            <p>Kamu butuh ruangan belajar?? Agar kamu nyaman saat belajarnya lebih baik ke ruangan yang kamu pengen aja yah. Kamu dapat memesan nya dari sini. Mari pesan ruangan yang kalian inginkan!!</p>
                         </div>
                     </div>
                 </div>
@@ -124,7 +124,7 @@
                     <div class="col-lg-6 order-lg-1">
                         <div class="p-5">
                             <h2 class="display-4">Beli Pulsa</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod aliquid, mollitia odio veniam sit iste esse assumenda amet aperiam exercitationem, ea animi blanditiis recusandae! Ratione voluptatum molestiae adipisci, beatae obcaecati.</p>
+                            <p>Wah Pulsa Kamu habis?? Tak usah kahwatir, Kami menyediakan penjualan pulsa untuk semua operator. Jadi Tak usah khawatir ya!!. Pesan aja disini!!.</p>
                         </div>
                     </div>
                 </div>
