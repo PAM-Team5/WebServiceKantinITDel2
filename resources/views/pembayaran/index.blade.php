@@ -127,6 +127,7 @@
                                 <th scope="col" class="text-center">Kategori</th>
                                 <th scope="col" class="text-center">Jumlah</th>
                                 <th scope="col" class="text-center">Harga Satuan</th>
+                                <th scope="col" class="text-center">Harga </th>
                                 <th scope="col" class="text-center">Aksi</th>
                                 </tr>
                             </thead>
@@ -140,6 +141,8 @@
                                     <td class="text-center">{{$pembayaran -> kategori}}</td>
                                     <td class="text-center">{{$pembayaran -> jumlah}}</td>
                                     <td class="text-center">Rp {{$pembayaran -> hargaPcs}} / pcs</td>
+                                    <td class="text-center">Rp {{$pembayaran -> harga}} </td>
+                                    
                                     <td class="text-center">
                                         <div class="d-flex justify-content-around">
                                             <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#abc<?= $pembayaran->id ?>">Detail</button>

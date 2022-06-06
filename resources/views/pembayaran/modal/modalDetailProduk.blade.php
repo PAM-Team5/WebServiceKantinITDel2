@@ -55,6 +55,12 @@
                 </div>
             </div>
 
+            <div class="form-group mt-3">
+                <div class="d-flex justify-content-center">
+                    <label class="mx-4 w-25" >Harga</label>
+                    <input type="text" class="form-control mx-4"  value="{{$pembayaran->harga}}" autofocus disabled>
+                </div>
+            </div>
 
 
         </div>
