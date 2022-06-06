@@ -202,9 +202,6 @@ class ProductController extends Controller
     public function updateAPI(Request $request, $id)
     {
 
-        $validator = Validator::make($request->all(), [
-            'gambar' => 'required|image:jpeg,png,jpg,gif,svg|max:2048'
-         ]);
 
         // $foto = $request->file('gambar');
         // $path = $foto->store('product', 'public');
@@ -218,6 +215,25 @@ class ProductController extends Controller
         //$products -> gambar = basename($path);
         $products -> gambar = $request->input('gambar');
         $products -> deskripsi = $request->input('deskripsi');
+        $products -> save();
+        return response()->json($products);
+    }
+
+    public function updateJumlahAPI(Request $request, $id)
+    {
+
+        $products = Product::where(['id'=>$id])->first();
+        $products -> jumlah = $request->input('jumlah');
+        $products -> save();
+        return response()->json($products);
+    }
+
+    public function updateStatusAPI(Request $request, $id)
+    {
+
+
+        $products = Product::where(['id'=>$id])->first();
+        $products -> status = $request->input('status');
         $products -> save();
         return response()->json($products);
     }
