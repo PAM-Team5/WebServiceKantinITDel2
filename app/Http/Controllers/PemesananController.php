@@ -106,6 +106,15 @@ class PemesananController extends Controller
         $pemesanan = Pemesanan::where(['id'=>$id])->first();
         $pemesanan -> jumlah = $request->input('jumlah');
         $pemesanan -> harga = $request->input('harga');
+        $pemesanan -> status = $request->input('status');
+        $pemesanan -> save();
+        return response()->json($pemesanan);
+    }
+
+    public function updatePembelianAPI(Request $request, $id)
+    {
+        $pemesanan = Pemesanan::where(['id'=>$id])->first();
+        $pemesanan -> status = $request->input('status');
         $pemesanan -> save();
         return response()->json($pemesanan);
     }

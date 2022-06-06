@@ -17,6 +17,7 @@ return new class extends Migration
             $table->increments('id');
             $table->integer('jumlah');
             $table->text('deskripsi')->nullable();
+            $table->string('status');
             $table->timestamps();
         });
     }

@@ -14,6 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// WEB SERVICE
+
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
@@ -51,27 +53,15 @@ Route::get('/pemesanan', 'PemesananController@indexAPI')->name('pemesanan');
 Route::post('/pemesanan/tambah', 'PemesananController@storeAPI');
 Route::put('/pemesanan/ubah/{id}', 'PemesananController@updateAPI');
 Route::delete('/pemesanan/hapus/{id}', 'PemesananController@destroyAPI');
+Route::put('/pemesananBayar/ubah/{id}', 'PemesananController@updatePembelianAPI');
 
-
-
-
-
-
-
-
+// PEMBELIAN
 
 Route::get('/data-pembelian', 'PembelianController@indexAPI')->name('data-pembelian');
 Route::post('/data-pembelian/tambah', 'PembelianController@storeAPI');
 Route::put('/data-pembelian/ubah/{id}', 'PembelianController@updateAPI');
 Route::delete('/data-pembelian/hapus/{id}', 'PembelianController@destroyAPI');
 
-Route::get('/data-pembayaran', 'PembayaranController@indexAPI')->name('data-pembayaran');
-Route::post('/data-pembayaran/tambah', 'PembayaranController@storeAPI');
-Route::put('/data-pembayaran/ubah/{id}', 'PembayaranController@updateAPI');
-Route::delete('/data-pembayaran/hapus/{id}', 'PembayaranController@destroyAPI');
-
-
-// WEB SERVICE
 
 // USER
 
