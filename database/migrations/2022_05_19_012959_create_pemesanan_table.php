@@ -22,7 +22,7 @@ return new class extends Migration
             $table->bigInteger('hargaPcs');
             $table->text('gambar');
             $table->text('deskripsi');
-            $table->string('role')->nullable();
+            $table->string('role')->default('admin-kantin');
             $table->bigInteger('harga');
             $table->unsignedInteger('ID_Product')->nullable();
             $table->foreign('ID_Product')->references('id')->on('products')->onDelete('cascade');
