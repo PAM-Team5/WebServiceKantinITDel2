@@ -22,19 +22,15 @@
                 </div>
             </div>
 
-
             <div class="form-group mt-3">
                 <div class="d-flex justify-content-center">
                     <label class="mx-4 w-25" >Status</label>
                     <select class="form-control custom-select mx-4" name="status" id="status">
-                        @if($pembelian->status=='tersedia')
-                        <option value="{{$pembelian->status}}">Tersedia</option>
-                        <option value="habis">Habis</option>
-                        @endif
-                        @if($pembelian->status=='habis')
-                        <option value="{{$pembelian->status}}">Habis</option>
-                        <option value="tersedia">Tersedia</option>
-                        @endif
+                        <option value="{{$pembelian->status}}">{{$pembelian->status}}</option>
+                        <option value="belum-diantar">Proses Pengantaran</option>
+                        <option value="Telah Diantar">Telah Diantar</option>
+                        <option value="Selesai">Selesai</option>
+                        <option value="Dibatalkan">Dibatalkan</option>
                     </select>
                 </div>
             </div>

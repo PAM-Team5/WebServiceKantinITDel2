@@ -26,15 +26,10 @@
             <div class="form-group mt-3">
                 <div class="d-flex justify-content-center">
                     <label class="mx-4 w-25" >Status</label>
-                    <select class="form-control custom-select mx-4" name="status" id="status">
-                        @if($pembayaran->status=='tersedia')
-                        <option value="{{$pembayaran->status}}">Tersedia</option>
-                        <option value="habis">Habis</option>
-                        @endif
-                        @if($pembayaran->status=='habis')
-                        <option value="{{$pembayaran->status}}">Habis</option>
-                        <option value="tersedia">Tersedia</option>
-                        @endif
+                     <select class="form-control custom-select mx-4" name="status" id="status">
+                        <option value="{{$pembayaran->status}}">{{$pembayaran->status}}</option>
+                        <option value="bayar">Bayar</option>
+                        <option value="belum-dibayar">Belum Bayar</option>
                     </select>
                 </div>
             </div>
