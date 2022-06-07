@@ -97,7 +97,7 @@ class ProductController extends Controller
 
     public function index()
     {
-        $products = Product::paginate(10);
+        $products = Product::simplePaginate(10);
         return view('produk.index', ['products'=>$products]);
     }
 
@@ -164,8 +164,8 @@ class ProductController extends Controller
             'jumlah' => $request->jumlah,
             'status' => $request->status,
             'gambar' => basename($path),
-            'role' => $request($role)
-            'deskripsi' => $request->deskripsi,
+            'role' => $request->role,
+            'deskripsi' => $request->deskripsi
         ]);
 
         return redirect(route('product'))->with('success','Data Product berhasil dibuat !');

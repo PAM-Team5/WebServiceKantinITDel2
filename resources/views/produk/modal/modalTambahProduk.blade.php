@@ -88,7 +88,7 @@
 
             <input type="text" name="status" value="Tersedia" style="visibility: hidden">
 
-            <input type="text" name="role" value="Tersedia" style="visibility: hidden">
+            <input type="text" name="role" value="admin-kantin" style="visibility: hidden">
             
         </div>
 

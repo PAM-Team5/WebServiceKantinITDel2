@@ -199,6 +199,9 @@
                             </tbody>
                         </table>
                     </div>
+                    <div class="d-flex justify-content-end mt-3">
+                        {{ $products->links() }}
+                    </div>
                 </div>
             </div>
             
