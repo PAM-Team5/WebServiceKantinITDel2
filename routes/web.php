@@ -33,10 +33,11 @@ Route::post('/pembelian/Simpan', 'PembelianController@store');
 Route::post('/pembelian/Kirim/{id}', 'PembelianController@update');
 Route::get('/pembelian/Hapus/{id}', 'PembelianController@destroy');
 
-Route::get('/admin', [App\Http\Controllers\AdminController::class, 'admin'])->name('admin');
+
 Route::get('out', 'App\Http\Controllers\adminController@logout')->name('logout');
 
 Auth::routes();
 
+Route::get('/admin', [App\Http\Controllers\AdminController::class, 'admin'])->name('admin');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 

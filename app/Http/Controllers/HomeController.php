@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Pembelian;
+use App\Models\Pemesanan;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +26,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+         $product = Product::count();
+        $pembayaran = Pemesanan::count();
+        $pembelian = Pembelian::count();
+        return view('admin', compact('product', 'pembayaran', 'pembelian'));
     }
 }
