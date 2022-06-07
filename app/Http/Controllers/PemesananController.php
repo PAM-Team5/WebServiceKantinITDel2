@@ -25,6 +25,13 @@ class PemesananController extends Controller
 
     }
 
+    public function indexPemesananUserAPI($ID_Pembelian)
+    {
+        $pemesanan = Pemesanan::where('ID_Pembelian',$ID_Pembelian)->get();
+        return response()->json($pemesanan);
+    }
+
+
     public function index()
     {
         $pemesanan = Pemesanan::paginate(10);

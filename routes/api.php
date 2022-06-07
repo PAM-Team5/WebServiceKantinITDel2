@@ -52,6 +52,7 @@ Route::delete('/data-produk/hapus/{id}', 'ProductController@destroyAPI');
 // PEMESANAN
 
 Route::get('/pemesanan', 'PemesananController@indexAPI')->name('pemesanan');
+Route::get('/pemesananRiwayat/{ID_Pembelian}', 'PemesananController@indexPemesananUserAPI');
 Route::post('/pemesanan/tambah', 'PemesananController@storeAPI');
 Route::put('/pemesanan/ubah/{id}', 'PemesananController@updateAPI');
 Route::delete('/pemesanan/hapus/{id}', 'PemesananController@destroyAPI');
@@ -71,6 +72,8 @@ Route::delete('/pembelian/hapus/{id}', 'PembelianController@destroyAPI');
 
 Route::post('/login', 'UserController@login');
 Route::post('/register', 'UserController@register');
+Route::get('/user/{id}', 'UserController@indexAPI');
+
 
 //  PRODUCT
 
