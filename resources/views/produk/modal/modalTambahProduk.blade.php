@@ -86,10 +86,10 @@
             </div>
 
 
-            <input type="text" name="status" value="tersedia" style="visibility: hidden">
-            @error('status')
-                    <div class="alert-danger mt-2 mr-2">{{$message}}</div>
-                @enderror
+            <input type="text" name="status" value="Tersedia" style="visibility: hidden">
+
+            <input type="text" name="role" value="Tersedia" style="visibility: hidden">
+            
         </div>
 
 

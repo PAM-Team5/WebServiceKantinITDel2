@@ -164,6 +164,7 @@ class ProductController extends Controller
             'jumlah' => $request->jumlah,
             'status' => $request->status,
             'gambar' => basename($path),
+            'role' => $request($role)
             'deskripsi' => $request->deskripsi,
         ]);
 
