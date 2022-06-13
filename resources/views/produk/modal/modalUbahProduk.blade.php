@@ -27,11 +27,11 @@
                 <div class="d-flex justify-content-center">
                     <label class="mx-4 w-25" >Status</label>
                     <select class="form-control custom-select mx-4" name="status" id="status">
-                        @if($product->status=='tersedia')
+                        @if($product->status=='Tersedia')
                         <option value="{{$product->status}}">Tersedia</option>
                         <option value="habis">Habis</option>
                         @endif
-                        @if($product->status=='habis')
+                        @if($product->status=='Habis')
                         <option value="{{$product->status}}">Habis</option>
                         <option value="tersedia">Tersedia</option>
                         @endif
